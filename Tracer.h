@@ -11,6 +11,9 @@
 
 #include "Camera.h"
 #include "Scene.h"
+#ifdef linux
+#include <omp.h>
+#endif
 
 #define EPSILON 1e-5f
 
@@ -23,7 +26,10 @@ public:
     {
         std::vector<Ray> rays = camera->generateViewRays(filmSize);
         std::vector<glm::vec3> pixels(rays.size());
-        for(unsigned i=0; i<pixels.size(); i++)
+#ifdef linux
+#pragma omp parallel for
+#endif
+        for(int i=0; i<pixels.size(); i++)
         {
             HitInfo info = scene->intersect(rays[i]);
             if(info.hit())

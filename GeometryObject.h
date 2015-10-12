@@ -10,10 +10,15 @@
 #define GeometryObject_hpp
 
 #include <stdio.h>
-#include <glm.hpp>
+#include <glm/glm.hpp>
 #include "Ray.h"
 #include "HitInfo.h"
 #include "Material.h"
+
+#ifdef linux
+#include <tr1/memory>
+namespace std{ using namespace std::tr1; }
+#endif
 
 class GeometryObject
 {

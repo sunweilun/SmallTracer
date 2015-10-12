@@ -14,7 +14,7 @@
 #include "HitInfo.h"
 #include "KDTree.h"
 #include "GeometryObject.h"
-#include <glm.hpp>
+#include <glm/glm.hpp>
 #include <vector>
 #include "ObjParser.hpp"
 

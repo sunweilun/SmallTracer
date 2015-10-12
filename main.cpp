@@ -5,15 +5,18 @@
 //  Created by Weilun Sun on 10/10/15.
 //  Copyright © 2015 UC Berkeley. All rights reserved.
 //
+
+#include <opencv2/opencv.hpp>
+
 #include "PinholeCamera.h"
 #include "TriangleMesh.h"
 #include "PointLight.h"
 #include "PhongMaterial.h"
 #include "Tracer.h"
-#include <opencv2/opencv.hpp>
+
 
 int main(int argc, const char * argv[]) {
-    std::string path = "/Users/weilunsun/Documents/Data/obj/toyplane.obj";
+    std::string path = "/home/swl/Documents/Data/obj/toyplane.obj";
     
     Tracer tracer;
     std::shared_ptr<Scene> scene(new Scene);
@@ -48,7 +51,7 @@ int main(int argc, const char * argv[]) {
     camera->setView(glm::vec3(20, 20, 20), glm::vec3(0, -10, 0), glm::vec3(0, 1, 0));
     glm::uvec2 filmSize = glm::uvec2(1024, 768);
     
-    int n = 1;
+    int n = 8;
     for(int i=0; i < n; i++)
     {
         for(int j=0; j < n; j++)
@@ -61,6 +64,7 @@ int main(int argc, const char * argv[]) {
     }
     
     std::vector<glm::vec3> film = tracer.trace(scene, camera, filmSize);
+    
     cv::Mat image(filmSize[1], filmSize[0], CV_8UC3);
     for(unsigned i=0; i<filmSize[1]; i++)
     {

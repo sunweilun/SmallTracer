@@ -9,8 +9,14 @@
 #ifndef RayTracer_KDTree_h
 #define RayTracer_KDTree_h
 
-#include <glm.hpp>
+#include <glm/glm.hpp>
 #include <vector>
+#include <algorithm>
+
+#ifdef linux
+#include <tr1/memory>
+namespace std{ using namespace std::tr1; }
+#endif
 
 /*
 Define your classes as below.

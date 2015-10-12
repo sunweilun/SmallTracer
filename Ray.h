@@ -9,7 +9,7 @@
 #ifndef Ray_h
 #define Ray_h
 
-#include <glm.hpp>
+#include <glm/glm.hpp>
 
 class Ray
 {

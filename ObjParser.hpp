@@ -10,7 +10,7 @@
 #define ObjParser_hpp
 
 #include <stdio.h>
-#include <glm.hpp>
+#include <glm/glm.hpp>
 #include <string>
 #include <string.h>
 #include <vector>
